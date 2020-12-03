@@ -21,7 +21,6 @@ export class MostrarAutosUsuarioComponent implements OnInit {
     this.cloudStorage.getSnapAutos().subscribe((snap)=>{
       this.listaAutos = [];
       snap.forEach((data) => {
-        console.log("for each",data.payload.doc.data());
         let auto: IAuto = data.payload.doc.data();
         auto.id = data.payload.doc.id;
         if(auto.correo == this.correo){
