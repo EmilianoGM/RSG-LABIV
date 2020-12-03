@@ -1,0 +1,15 @@
+<ul *ngIf="!hayUsuarioLoggeado" class="borde">
+  <li>
+    <a class="links" [routerLink]="['/login']" routerLinkActive="router-link-active">Login</a>
+    <a class="links" [routerLink]="['/register']" routerLinkActive="router-link-active">Registrar usuario</a>
+    <a class="links" [routerLink]="['/mostrar-autos']" routerLinkActive="router-link-active">Lista de autos</a>
+  </li>
+</ul>
+<div *ngIf="hayUsuarioLoggeado" class="borde">
+    <a class="links" [routerLink]="['/mostrar-autos']" routerLinkActive="router-link-active">Lista de autos</a>
+    <a class="links" [routerLink]="['/mostrar-autos-usuario']" routerLinkActive="router-link-active">Lista de autos registrados</a>
+    <a class="links" [routerLink]="['/registrar-autos']" routerLinkActive="router-link-active">Registrar auto</a>
+    <a class="links" [routerLink]="['/cambiar-auto']" routerLinkActive="router-link-active">Cambiar auto</a>
+    <a class="links" [routerLink]="['/borrar-auto']" routerLinkActive="router-link-active">Borrar auto</a>
+    <button class="links" (click)="salir()">Cerrar sesión</button>
+</div>

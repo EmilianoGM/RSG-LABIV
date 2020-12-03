@@ -1,0 +1,21 @@
+<table>
+  <tr>
+    <td>Modelo</td>
+    <td>Marca</td>
+    <td>Propietario</td>
+    <td>Kilometraje</td>
+    <td>Precio</td>
+    <td>Acciones</td>
+  </tr>
+  <tbody *ngFor="let auto of lista">
+    <tr>
+      <td>{{auto.modelo}}</td>
+      <td>{{auto.marca}}</td>
+      <td>{{auto.correo}}</td>
+      <td>{{auto.km}}</td>
+      <td>{{auto.precio}}</td>
+      <td *ngIf="activarUpdate == true"><button (click)="enviarAuto(auto)">Cambiar datos</button></td>
+      <td *ngIf="activarDelete == true"><button (click)="enviarAuto(auto)">Borrar auto</button></td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,4 @@
+<app-login-form (emitData)="loggearUsuario($event)"></app-login-form>
+<div *ngIf="errorLogin">
+  ¡Atención! Los datos que ingresaste no se encuentran en nuestra base de datos. Para acceder primero debes registrarte.
+</div>

@@ -1,0 +1,18 @@
+<table>
+  <tr>
+    <td>Modelo</td>
+    <td>Marca</td>
+    <td>Propietario</td>
+    <td>Kilometraje</td>
+    <td>Precio</td>
+  </tr>
+  <tbody *ngFor="let auto of lista">
+    <tr>
+      <td>{{auto.modelo}}</td>
+      <td>{{auto.marca}}</td>
+      <td>{{auto.correo}}</td>
+      <td>{{auto.km}}</td>
+      <td>{{auto.precio}}</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,60 @@
+<h1>Modificar auto</h1>
+<h6>{{mensaje}}</h6>
+<app-lista-autos-usuario [lista]="listaAutos" [activarDelete]="false" [activarUpdate]="true" (emitAuto)="cargarAuto($event)"></app-lista-autos-usuario>
+<form *ngIf="formActivado" [formGroup]="formAuto" (ngSubmit)="updateAuto(formAuto.value)">
+  <div>
+    <label for="marca">
+      Marca
+    </label>
+    <input id="marca" type="text" formControlName="marca">
+  </div>
+  <div *ngFor="let validacion of mensajesValidacion.marca">
+    <div class="mensajeError"
+    *ngIf="formAuto.get('marca').hasError(validacion.tipo) && (formAuto.get('marca').dirty || formAuto.get('marca').touched)">
+      {{validacion.mensaje}}
+    </div>
+  </div>
+
+  <div>
+    <label for="modelo">
+      Modelo
+    </label>
+    <input id="modelo" type="text" formControlName="modelo">
+  </div>
+  <div *ngFor="let validacion of mensajesValidacion.modelo">
+    <div class="mensajeError"
+    *ngIf="formAuto.get('modelo').hasError(validacion.tipo) && (formAuto.get('modelo').dirty || formAuto.get('modelo').touched)">
+      {{validacion.mensaje}}
+    </div>
+  </div>
+
+
+  <div>
+    <label for="km">
+      Kilometraje
+    </label>
+    <input type="number"  min="1" max="1000000" formControlName="km">
+  </div>
+  <div *ngFor="let validacion of mensajesValidacion.km">
+    <div class="mensajeError"
+    *ngIf="formAuto.get('km').hasError(validacion.tipo) && (formAuto.get('km').dirty || formAuto.get('km').touched)">
+      {{validacion.mensaje}}
+    </div>
+  </div>
+
+  <div>
+    <label for="precio">
+      Precio
+    </label>
+    <input type="number"  min="1" max="1000000" formControlName="precio">
+  </div>
+  <div *ngFor="let validacion of mensajesValidacion.precio">
+    <div class="mensajeError"
+    *ngIf="formAuto.get('km').hasError(validacion.tipo) && (formAuto.get('precio').dirty || formAuto.get('precio').touched)">
+      {{validacion.mensaje}}
+    </div>
+  </div>
+
+
+  <button class="button" type="submit" [disabled]="!formAuto.valid">Modificar datos</button>
+</form>

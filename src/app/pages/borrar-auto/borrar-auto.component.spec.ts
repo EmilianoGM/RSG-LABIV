@@ -1,0 +1,25 @@
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { BorrarAutoComponent } from './borrar-auto.component';
+
+describe('BorrarAutoComponent', () => {
+  let component: BorrarAutoComponent;
+  let fixture: ComponentFixture<BorrarAutoComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ BorrarAutoComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(BorrarAutoComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

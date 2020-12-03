@@ -1,0 +1,32 @@
+<div class="container">
+  <h4>Registro</h4>
+  <form [formGroup]="formRegister" (ngSubmit)="onSubmit(formRegister.value)">
+    <div>
+      <label for="email">
+        Correo
+      </label>
+      <input id="email" type="text" formControlName="email">
+    </div>
+
+    <div *ngFor="let validacion of mensajesValidacion.email">
+      <div class="mensajeError"
+      *ngIf="formRegister.get('email').hasError(validacion.tipo) && (formRegister.get('email').dirty || formRegister.get('email').touched)">
+        {{validacion.mensaje}}
+      </div>
+    </div>
+
+    <div>
+      <label for="password">
+        Contraseña
+      </label>
+      <input  id="password" type="password" formControlName="password">
+    </div>
+    <div *ngFor="let validacion of mensajesValidacion.password">
+      <div class="mensajeError"
+      *ngIf="formRegister.get('password').hasError(validacion.tipo) && (formRegister.get('password').dirty || formRegister.get('password').touched)">
+        {{validacion.mensaje}}
+      </div>
+    </div>
+    <button class="button" type="submit" [disabled]="!formRegister.valid">Registrarme</button>
+  </form>
+</div>
