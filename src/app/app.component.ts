@@ -10,6 +10,7 @@ import { TokenService } from './services/token.service';
 })
 export class AppComponent {
   hayUsuario: boolean;
+  banderaDos: boolean;
   title = 'RecuperatorioSegundoParcial';
   token;
 
@@ -18,22 +19,27 @@ export class AppComponent {
     private tokenService: TokenService,
     private router: Router
   ){
+    this.banderaDos = false;
     this.fireAuthService.getAuthState().subscribe((authState) => {
       if(authState && this.tokenService.isLogged()){
+        this.banderaDos = true;
         this.token = tokenService.getToken();
         if(this.token.ingresado){
           this.hayUsuario = true;
+          this.banderaDos = true;
         }
 
       } else {
         this.hayUsuario = false;
       }
     });
+
   }
 
   public logOut(){
     if(this.hayUsuario){
       this.fireAuthService.logoutUsuario().then((res) => {
+        this.banderaDos = false;
         this.router.navigateByUrl('/login');
       });
     }
